@@ -33,6 +33,5 @@
     } else {
         echo "failed to migrate";
     }
-
 ?>
 
