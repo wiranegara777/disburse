@@ -40,9 +40,7 @@ Class Disburse{
          
         // Submit the POST request
         $result = curl_exec($ch);
-       // echo $result."<br>";
         return $result;
-        // Close cURL session handle
         curl_close($ch);
     }
 
@@ -71,17 +69,14 @@ Class Disburse{
         );
          
         $result = curl_exec($ch);
-        //echo $result."<br>";
         $result = json_decode($result);
         curl_close($ch);
 
         //update the data
         $crud = new Crud();
-        
         $status = $result->status;
         $timeserved = $result->time_served;
         $receipt = $result->receipt;
-
         $res = $crud->execute("UPDATE disburse_receipt SET status = '$status', timeserved = '$timeserved', 
             receipt = '$receipt' WHERE id_disburse = '$id_disburse'");
         if($res){
