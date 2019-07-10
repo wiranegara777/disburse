@@ -1,25 +1,19 @@
 <?php 
-Class Reimburse{
+include 'Crud.php';
+Class Disburse{
     protected $bank_code;
-    protected $account_number;
+    public $account_number;
     protected $amount;
     protected $remark;
 
-    function ___construct($bank_code, $account_number, $amount, $remark){
+    function __construct($bank_code, $account_number, $amount, $remark){
         $this->bank_code = $bank_code;
         $this->account_number = $account_number;
         $this->amount = $amount;
         $this->remark = $remark;
     }
 
-    function print(){
-        echo $this->bank_code;
-        echo $this->account_number;
-        echo $this->amount;
-        echo $this->remark;
-    }
-
-    function reimburse(){
+    function disburse(){
         $data = array(
             'bank_code' => $this->bank_code,
             'account_number' => $this->account_number,
@@ -46,9 +40,22 @@ Class Reimburse{
          
         // Submit the POST request
         $result = curl_exec($ch);
-        echo $result;
+        //echo $result."<br>";
+        return $result;
         // Close cURL session handle
         curl_close($ch);
+    }
+
+    function update_disburse($account_number,$id,$status,$timestamp,$beneficiary_name,$fee){
+
+        $crud = new Crud();
+        $result = $crud->execute("UPDATE disburse_receipt SET id_disburse = '$id', status = '$status', stamp = '$timestamp', 
+            beneficiary_name = '$beneficiary_name',fee='$fee' WHERE account_number = '$account_number'");
+        if($result){
+            echo "succesfully update database</br>";
+        }else{
+            echo "failed to update database";
+        }
     }
     //end of line
 }

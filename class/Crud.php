@@ -28,7 +28,7 @@ class Crud extends DbConfig
     public function execute($query) 
     {
         $result = $this->connection->query($query);
-        
+        echo mysqli_error($this->connection);
         if ($result == false) {
             echo 'Error: cannot execute the command';
             return false;
