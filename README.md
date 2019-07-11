@@ -12,6 +12,16 @@ if you already have _installed_ PHP and MySQL _without xampp_ follow the instruc
 $ git clone https://github.com/wiranegara777/disburse.git
 $ cd disburse
 ```
+* open DbConfig.php in class directory
+```sh
+<?php
+class DbConfig 
+{    
+    private $_host = 'localhost';
+    private $_username = 'root';  
+    private $_password = '';
+    private $_database = 'mydata'; #change this to your DB name
+```
 * migrate and seed the database
 ```sh
 $ php migrate.php
@@ -29,6 +39,16 @@ $ cd C:\xamppp\htdocs
 ```sh
 $ git clone https://github.com/wiranegara777/disburse.git
 $ cd disburse
+```
+* open DbConfig.php in class directory
+```sh
+<?php
+class DbConfig 
+{    
+    private $_host = 'localhost';
+    private $_username = 'root';  
+    private $_password = '';
+    private $_database = 'mydata'; #change this to your DB name
 ```
 * migrate and seed the database
 ```sh
