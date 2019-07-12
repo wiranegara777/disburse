@@ -1,7 +1,7 @@
 <?php
 class DbConfig 
 {    
-    private $_host = 'localhost';
+    private $_host = '127.0.0.1';
     private $_username = 'root';
     private $_password = '';
     private $_database = 'mydata';
